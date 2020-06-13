@@ -6,7 +6,23 @@
     <title>Document</title>
 </head>
 <body>
-    <div id="header"></div>
-    <iframe src="https://instagram.com/p/fA9uwTtkSN/media/?size=t"></iframe>
+    <h1>Test untuk Ambil Gambar dari IG Post</h1>
+    <script>
+        fetch("https://instagram.com/p/CBNQR6jJznU/media/?size=l")
+	        .then(function(log_data){
+  	            console.log(log_data);
+  	            return log_data;
+	        })
+	        .then(function append_img(log_data){
+  	            if(log_data.status === 200){
+                    var img = document.createElement("img");
+                    img.src = log_data.url;
+                    document.body.append(img);
+                }
+	        })
+	        .catch(function(error){
+  	            console.log(error);
+	        });
+    </script>
 </body>
 </html>
